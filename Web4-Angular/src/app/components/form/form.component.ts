@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DataService} from '../../services/data.service';
 
 @Component({
   selector: 'app-form',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormComponent implements OnInit {
   test = 'Dit is een test';
-  constructor() { }
+  constructor(public dataService: DataService) { }
 
   ngOnInit() {
   }
 
+  onClick() {
+    this.dataService.createPost();
+  }
 }

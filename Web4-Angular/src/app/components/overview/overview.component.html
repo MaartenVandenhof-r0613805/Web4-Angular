@@ -3,21 +3,12 @@
   <tr>
     <th>Name</th>
     <th>Email</th>
-    <th>Gender</th>
+    <th>Role</th>
   </tr>
-  <tr>
-    <td>John Smith</td>
-    <td>John@gmail.com</td>
-    <td>Male</td>
-  </tr>
-  <tr>
-    <td>John Smith</td>
-    <td>John@gmail.com</td>
-    <td>Male</td>
-  </tr>
-  <tr>
-    <td>John Smith</td>
-    <td>John@gmail.com</td>
-    <td>Male</td>
+  <tr *ngFor="let post of posts">
+    <td>{{post.firstName}}</td>
+    <td>{{post.userId}}</td>
+    <td>{{post.role}}</td>
   </tr>
 </table>
+

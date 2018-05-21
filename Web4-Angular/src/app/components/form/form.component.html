@@ -1,4 +1,4 @@
-<form action="" id="register">
+<form method="post" action="Controller?action=Register" id="register">
   <h1>{{test}}</h1>
   <label for="firstName">Name</label><input type="text" id="firstName">
   <label for="lastName">Last Name</label><input type="text" id="lastName">
@@ -6,6 +6,7 @@
   <label for="password">Password</label><input type="text" id="password">
   <label for="passRepeat">Repeat Password</label><input type="text" id="passRepeat">
   <label for="gender">Gender</label><input type="text" id="gender">
-  <button id="submit" routerLink="/overview"> Submit</button>
+
 </form>
+<button id="submit" routerLink="/overview" (click)="onClick()"> Submit</button>
 
