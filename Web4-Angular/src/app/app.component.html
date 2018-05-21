@@ -1,11 +1,8 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
-<form action="" id="register">
-  <h1>{{title}}</h1>
-  <label for="firstName">Name</label><input type="text" id="firstName">
-  <label for="lastName">Last Name</label><input type="text" id="lastName">
-  <label for="email">Email</label><input type="text" id="email">
-  <label for="password">Password</label><input type="text" id="password">
-  <label for="passRepeat">Repeat Password</label><input type="text" id="passRepeat">
-  <label for="gender">Gender</label><input type="text" id="gender">
-  <input type="submit" value="Submit" id="submit">
-</form>
+<header>
+  <ul>
+    <li><a routerLink="/">Register</a></li>
+    <li><a routerLink="/overview">Overview</a></li>
+  </ul>
+</header>
+<router-outlet></router-outlet>
