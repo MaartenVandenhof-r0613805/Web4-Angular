@@ -1,19 +1,21 @@
 import { Injectable } from '@angular/core';
-import {Http} from '@angular/http';
 import {map} from 'rxjs/internal/operators';
-import {st} from '@angular/core/src/render3';
+import {person} from '../components/classes/person';
+import {Observable} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  constructor(public http: Http) {
-    console.log('Dataservice connecte');
+  constructor(public http: HttpClient) {
+    console.log('Dataservice connected');
   }
 
-  getPost() {
-    return this.http.get('http://localhost:8080/Controller?action=GetUsers').pipe(map(res => res.json()));
+  getPost(): Observable<person[]> {
+    console.log('Dit is een test ');
+    return this.http.get<person[]>('http://localhost:8080/Controller?action=GetUsers');
   }
 
   createPost() {
@@ -26,11 +28,4 @@ export class DataService {
     return this.http.post('http://localhost:8080/Controller?action=Register', data);
   }
 
-}
-
-interface Post {
-  userId: string;
-  firstName: string;
-  lastName: string;
-  password: string;
 }

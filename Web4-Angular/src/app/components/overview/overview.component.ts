@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DataService} from '../../services/data.service';
+import {person} from '../classes/person';
+import {timer} from 'rxjs';
 
 @Component({
   selector: 'app-overview',
@@ -7,7 +9,7 @@ import {DataService} from '../../services/data.service';
   styleUrls: ['./overview.component.css']
 })
 export class OverviewComponent implements OnInit {
-  posts: Post[];
+  posts: person[];
 
 
   constructor(private dataService: DataService) {
@@ -15,15 +17,15 @@ export class OverviewComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataService.getPost().subscribe((data) => {
-      this.posts = data;
+    this.getPersons();
+  }
+
+  getPersons(): void {
+    timer(0, 2500).subscribe(() => {
+      this.dataService.getPost().subscribe(data => this.posts = data);
     });
+
   }
 
 }
 
-interface Post {
-  firstName: string;
-  userId: string;
-  role: string;
-}
